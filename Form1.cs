@@ -45,6 +45,23 @@ namespace ConnpassAutomator
             var alert = Driver.SwitchTo().Alert();
             alert.Accept();
 
+            //TODO:‚³‚Ä
+            Thread.Sleep(1000);
+
+            //‰º‘‚«‰æ–Ê
+            {
+                var fieldTitle = Driver.FindElement(By.Id("FieldTitle"));
+                fieldTitle.Click();
+                var title = fieldTitle.FindElement(By.Name("title"));
+                //ƒ^ƒCƒgƒ‹‚ğ‘‚«Š·‚¦‚é
+                var titleValue = title.GetAttribute("value");
+                title.Clear();
+                title.SendKeys("aaa");
+                var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
+                submit.Click();
+
+
+            }
 
             Driver.Close();
         }
