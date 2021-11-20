@@ -14,8 +14,10 @@ namespace ConnpassAutomator
         private void button1_Click(object sender, EventArgs e)
         {
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            Driver = new ChromeDriver(baseDir, new ChromeOptions(), TimeSpan.FromSeconds(120));
-            Driver.Url = "https://connpass.com/editmanage/";
+            Driver = new ChromeDriver(baseDir, new ChromeOptions(), TimeSpan.FromSeconds(120))
+            {
+                Url = "https://connpass.com/editmanage/"
+            };
         }
     }
 }
