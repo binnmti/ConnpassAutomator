@@ -24,6 +24,9 @@ namespace ConnpassAutomator
             Driver.FindElement(By.Name("password")).SendKeys(passwordTextBox.Text);
             Driver.FindElement(By.Id("login_form")).Submit();
 
+            //TODO:さて
+            Thread.Sleep(1000);
+
             var elements = Driver.FindElements(By.ClassName("event_list"));
             foreach(var element in elements)
             {
@@ -38,7 +41,10 @@ namespace ConnpassAutomator
                     break;
                 }
             }
-            //cofrimが上がるか。
+            //コピー作成。
+            var alert = Driver.SwitchTo().Alert();
+            alert.Accept();
+
 
             Driver.Close();
         }
