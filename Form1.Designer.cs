@@ -31,6 +31,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -58,11 +60,30 @@
             this.passwordTextBox.Size = new System.Drawing.Size(150, 31);
             this.passwordTextBox.TabIndex = 2;
             // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Location = new System.Drawing.Point(394, 88);
+            this.titleTextBox.Multiline = true;
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(284, 97);
+            this.titleTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(394, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "タイトル";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.button1);
@@ -80,5 +101,7 @@
         private Button button1;
         private TextBox userNameTextBox;
         private TextBox passwordTextBox;
+        private TextBox titleTextBox;
+        private Label label1;
     }
 }

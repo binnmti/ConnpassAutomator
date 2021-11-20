@@ -23,12 +23,32 @@ namespace ConnpassAutomator
             Driver.FindElement(By.Name("username")).SendKeys(userNameTextBox.Text);
             Driver.FindElement(By.Name("password")).SendKeys(passwordTextBox.Text);
             Driver.FindElement(By.Id("login_form")).Submit();
+
+            var elements = Driver.FindElements(By.ClassName("event_list"));
+            foreach(var element in elements)
+            {
+                //label_status_event mb_5 close 終了
+                var status = element.FindElement(By.ClassName("label_status_event")).Text;
+
+                //C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5;
+                var title = element.FindElement(By.CssSelector(".title > a")).Text;
+                if (title.Contains(titleTextBox.Text) && status == "終了")
+                {
+                    element.FindElement(By.ClassName("icon_gray_copy")).Click();
+                    break;
+                }
+            }
+            //cofrimが上がるか。
+
+            Driver.Close();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.UserName = userNameTextBox.Text;
             Settings.Default.Password = passwordTextBox.Text;
+            Settings.Default.Title = titleTextBox.Text;
+
             Settings.Default.Save();
         }
 
@@ -36,6 +56,7 @@ namespace ConnpassAutomator
         {
             userNameTextBox.Text = Settings.Default.UserName;
             passwordTextBox.Text = Settings.Default.Password;
+            titleTextBox.Text = Settings.Default.Title;
         }
     }
 }
