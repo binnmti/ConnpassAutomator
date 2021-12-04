@@ -43,7 +43,7 @@ namespace ConnpassAutomator
 
                 //C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5;
                 var title = element.FindElement(By.CssSelector(".title > a")).Text;
-                if (title.Contains(titleTextBox.Text) && status == "終了")
+                if (title.Contains(eventTextBox.Text) && status == "終了")
                 {
                     element.FindElement(By.ClassName("icon_gray_copy")).Click();
                     break;
@@ -71,7 +71,7 @@ namespace ConnpassAutomator
                 //タイトルを書き換える
                 var titleValue = title.GetAttribute("value");
                 title.Clear();
-                title.SendKeys("aaa");
+                title.SendKeys(titleTextBox.Text);
 
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
@@ -86,7 +86,7 @@ namespace ConnpassAutomator
                 //タイトルを書き換える
                 var titleValue = title.GetAttribute("value");
                 title.Clear();
-                title.SendKeys("bbb");
+                title.SendKeys(subTitleTextBox.Text);
 
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
@@ -101,24 +101,24 @@ namespace ConnpassAutomator
                 //中身の文字
                 var startDate = fieldTitle.FindElement(By.Name("start_date"));
                 startDate.Clear();
-                startDate.SendKeys("2021/12/30");
+                startDate.SendKeys(startDateTextBox.Text);
                 startDate.SendKeys("\t");
 
                 //中身の文字
                 var startTime = fieldTitle.FindElement(By.Name("start_time"));
                 startTime.Clear();
-                startTime.SendKeys("19:30");
+                startTime.SendKeys(startTimeTextBox.Text);
                 startTime.SendKeys("\t");
 
                 var endDate = fieldTitle.FindElement(By.Name("end_date"));
                 endDate.Clear();
-                endDate.SendKeys("2021/12/31");
+                endDate.SendKeys(endDateTextBox.Text);
                 endDate.SendKeys("\t");
 
                 //中身の文字
                 var endTime = fieldTitle.FindElement(By.Name("end_time"));
                 endTime.Clear();
-                endTime.SendKeys("21:30");
+                endTime.SendKeys(endTimeTextBox.Text);
                 endTime.SendKeys("\t");
 
                 //ピッカーが保存ボタンに被ると、ボタンが押せなくなる
@@ -138,12 +138,7 @@ namespace ConnpassAutomator
                 //タイトルを書き換える
                 var titleValue = title.GetAttribute("value");
                 title.Clear();
-                title.SendKeys(@"C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5
-
-タイトルを編集
-
-サブタイトルを編集");
-
+                title.SendKeys(descTextBox.Text);
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
             }
@@ -174,7 +169,8 @@ namespace ConnpassAutomator
         {
             Settings.Default.UserName = userNameTextBox.Text;
             Settings.Default.Password = passwordTextBox.Text;
-            Settings.Default.Title = titleTextBox.Text;
+            
+            Settings.Default.Title = eventTextBox.Text;
 
             Settings.Default.Save();
         }
@@ -183,7 +179,7 @@ namespace ConnpassAutomator
         {
             userNameTextBox.Text = Settings.Default.UserName;
             passwordTextBox.Text = Settings.Default.Password;
-            titleTextBox.Text = Settings.Default.Title;
+            eventTextBox.Text = Settings.Default.Title;
         }
     }
 }
