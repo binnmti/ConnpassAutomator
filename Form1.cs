@@ -48,20 +48,74 @@ namespace ConnpassAutomator
             //TODO:さて
             Thread.Sleep(1000);
 
-            //下書き画面
+            //タイトル編集
             {
                 var fieldTitle = Driver.FindElement(By.Id("FieldTitle"));
+                //編集モードに入る
                 fieldTitle.Click();
+                //中身の文字
                 var title = fieldTitle.FindElement(By.Name("title"));
                 //タイトルを書き換える
                 var titleValue = title.GetAttribute("value");
                 title.Clear();
                 title.SendKeys("aaa");
+
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
-
-
             }
+            //サブタイトル編集
+            {
+                var fieldTitle = Driver.FindElement(By.Id("FieldSubTitle"));
+                //編集モードに入る
+                fieldTitle.Click();
+                //中身の文字
+                var title = fieldTitle.FindElement(By.Name("sub_title"));
+                //タイトルを書き換える
+                var titleValue = title.GetAttribute("value");
+                title.Clear();
+                title.SendKeys("bbb");
+
+                var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
+                submit.Click();
+            }
+            //開催日時編集
+            {
+                var fieldTitle = Driver.FindElement(By.Id("EventDates"));
+                //編集モードに入る
+                fieldTitle.Click();
+
+                //ピッカーが出るのを消すために\tを投げる
+                //中身の文字
+                var startDate = fieldTitle.FindElement(By.Name("start_date"));
+                startDate.Clear();
+                startDate.SendKeys("2021/12/30");
+                startDate.SendKeys("\t");
+
+                //中身の文字
+                var startTime = fieldTitle.FindElement(By.Name("start_time"));
+                startTime.Clear();
+                startTime.SendKeys("19:30");
+                startTime.SendKeys("\t");
+
+                var endDate = fieldTitle.FindElement(By.Name("end_date"));
+                endDate.Clear();
+                endDate.SendKeys("2021/12/31");
+                endDate.SendKeys("\t");
+
+                //中身の文字
+                var endTime = fieldTitle.FindElement(By.Name("end_time"));
+                endTime.Clear();
+                endTime.SendKeys("21:30");
+                endTime.SendKeys("\t");
+
+                //ピッカーが保存ボタンに被ると、ボタンが押せなくなる
+                //ピッカーを消すために、開始日時をクリックする
+                startDate.Click();
+
+                var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
+                submit.Click();
+            }
+
 
             Driver.Close();
         }
