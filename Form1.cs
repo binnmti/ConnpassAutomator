@@ -1,12 +1,14 @@
 using ConnpassAutomator.Properties;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace ConnpassAutomator
 {
     public partial class Form1 : Form
     {
         private ChromeDriver Driver { get; set; }
+        private WebDriverWait DriverWait { get; set; }
 
         public Form1()
         {
@@ -20,6 +22,12 @@ namespace ConnpassAutomator
             {
                 Url = "https://connpass.com/editmanage/"
             };
+            DriverWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60))
+            {
+                PollingInterval = TimeSpan.FromSeconds(1),
+            };
+            DriverWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+
             Driver.FindElement(By.Name("username")).SendKeys(userNameTextBox.Text);
             Driver.FindElement(By.Name("password")).SendKeys(passwordTextBox.Text);
             Driver.FindElement(By.Id("login_form")).Submit();
@@ -52,12 +60,6 @@ namespace ConnpassAutomator
             var messageArea = Driver.FindElement(By.Id("flash_message_area"));
             messageArea.Click();
             Thread.Sleep(400);
-
-            //          <div id="flash_message_area" style="">
-            //  <p class="message info">イベントをコピーしました。</p>
-            //</div>
-            //400ms待つ
-
 
             //タイトル編集
             {
@@ -155,7 +157,15 @@ namespace ConnpassAutomator
                 var popupSubmit = Driver.FindElement(By.ClassName("PopupSubmit"));
                 popupSubmit.Click();
             }
-            //<span class="PublishEvent btn btn_high_priority">...</span> 
+
+            //公開されたことを確認して終了
+            System.Diagnostics.Debug.WriteLine(Driver.Url);
+            DriverWait.Until((_) => Driver.Url.Contains("published"));
+            var mainTitle = Driver.FindElement(By.ClassName("main_title_2"));
+            if (mainTitle.Text != "イベントを公開しました")
+            {
+                throw new Exception("NG!!");
+            }
 
             Driver.Close();
         }
