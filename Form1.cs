@@ -48,6 +48,17 @@ namespace ConnpassAutomator
             //TODO:さて
             Thread.Sleep(1000);
 
+            //「イベントをコピーしました」がスライドインする
+            var messageArea = Driver.FindElement(By.Id("flash_message_area"));
+            messageArea.Click();
+            Thread.Sleep(400);
+
+            //          <div id="flash_message_area" style="">
+            //  <p class="message info">イベントをコピーしました。</p>
+            //</div>
+            //400ms待つ
+
+
             //タイトル編集
             {
                 var fieldTitle = Driver.FindElement(By.Id("FieldTitle"));
@@ -135,6 +146,16 @@ namespace ConnpassAutomator
                 submit.Click();
             }
 
+
+            //即時公開する
+            {
+                var publishEvent = Driver.FindElement(By.ClassName("PublishEvent"));
+                publishEvent.Click();
+
+                var popupSubmit = Driver.FindElement(By.ClassName("PopupSubmit"));
+                popupSubmit.Click();
+            }
+            //<span class="PublishEvent btn btn_high_priority">...</span> 
 
             Driver.Close();
         }
