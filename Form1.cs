@@ -115,6 +115,25 @@ namespace ConnpassAutomator
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
             }
+            //イベント編集
+            {
+                var fieldTitle = Driver.FindElement(By.Id("FieldDescription"));
+                //編集モードに入る
+                fieldTitle.Click();
+                //中身の文字
+                var title = fieldTitle.FindElement(By.Name("description_input"));
+                //タイトルを書き換える
+                var titleValue = title.GetAttribute("value");
+                title.Clear();
+                title.SendKeys(@"C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5
+
+タイトルを編集
+
+サブタイトルを編集");
+
+                var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
+                submit.Click();
+            }
 
 
             Driver.Close();
