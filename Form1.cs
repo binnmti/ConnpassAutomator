@@ -101,24 +101,24 @@ namespace ConnpassAutomator
                 //中身の文字
                 var startDate = fieldTitle.FindElement(By.Name("start_date"));
                 startDate.Clear();
-                startDate.SendKeys(startDateTextBox.Text);
+                startDate.SendKeys(startDateMaskedTextBox.Text);
                 startDate.SendKeys("\t");
 
                 //中身の文字
                 var startTime = fieldTitle.FindElement(By.Name("start_time"));
                 startTime.Clear();
-                startTime.SendKeys(startTimeTextBox.Text);
+                startTime.SendKeys(startTimeMaskedTextBox.Text);
                 startTime.SendKeys("\t");
 
                 var endDate = fieldTitle.FindElement(By.Name("end_date"));
                 endDate.Clear();
-                endDate.SendKeys(endDateTextBox.Text);
+                endDate.SendKeys(endDateMaskedTextBox.Text);
                 endDate.SendKeys("\t");
 
                 //中身の文字
                 var endTime = fieldTitle.FindElement(By.Name("end_time"));
                 endTime.Clear();
-                endTime.SendKeys(endTimeTextBox.Text);
+                endTime.SendKeys(endTimeMaskedTextBox.Text);
                 endTime.SendKeys("\t");
 
                 //ピッカーが保存ボタンに被ると、ボタンが押せなくなる
@@ -173,10 +173,10 @@ namespace ConnpassAutomator
             Settings.Default.CopySourceEventTitle = copySourceEventTitleTextBox.Text;
             Settings.Default.Title = titleTextBox.Text;
             Settings.Default.Subtitle = subTitleTextBox.Text;
-            Settings.Default.StartDate = startDateTextBox.Text;
-            Settings.Default.StartTime= startTimeTextBox.Text;
-            Settings.Default.EndDate = endDateTextBox.Text;
-            Settings.Default.EndTime = endTimeTextBox.Text;
+            Settings.Default.StartDate = startDateMaskedTextBox.Text;
+            Settings.Default.StartTime= startTimeMaskedTextBox.Text;
+            Settings.Default.EndDate = endDateMaskedTextBox.Text;
+            Settings.Default.EndTime = endTimeMaskedTextBox.Text;
             Settings.Default.DescText = descTextBox.Text;
 
             Settings.Default.Save();
@@ -190,10 +190,10 @@ namespace ConnpassAutomator
             copySourceEventTitleTextBox.Text = Settings.Default.CopySourceEventTitle;
             titleTextBox.Text= Settings.Default.Title;
             subTitleTextBox.Text = Settings.Default.Subtitle;
-            startDateTextBox.Text = Settings.Default.StartDate;
-            startTimeTextBox.Text = Settings.Default.StartTime;
-            endDateTextBox.Text = Settings.Default.EndDate;
-            endTimeTextBox.Text = Settings.Default.EndTime;
+            startDateMaskedTextBox.Text = Settings.Default.StartDate;
+            startTimeMaskedTextBox.Text = Settings.Default.StartTime;
+            endDateMaskedTextBox.Text = Settings.Default.EndDate;
+            endTimeMaskedTextBox.Text = Settings.Default.EndTime;
             descTextBox.Text = Settings.Default.DescText;
         }
     }
