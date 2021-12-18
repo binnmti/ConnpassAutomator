@@ -224,6 +224,7 @@
             this.plus7Button.TabIndex = 25;
             this.plus7Button.Text = "+7Day";
             this.plus7Button.UseVisualStyleBackColor = true;
+            this.plus7Button.Click += new System.EventHandler(this.plus7Button_Click);
             // 
             // Form1
             // 
