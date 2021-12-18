@@ -47,6 +47,7 @@
             this.startTimeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.endTimeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.endDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.plus7Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -94,7 +95,7 @@
             // 
             // subTitleTextBox
             // 
-            this.subTitleTextBox.Location = new System.Drawing.Point(443, 207);
+            this.subTitleTextBox.Location = new System.Drawing.Point(441, 136);
             this.subTitleTextBox.Name = "subTitleTextBox";
             this.subTitleTextBox.Size = new System.Drawing.Size(284, 31);
             this.subTitleTextBox.TabIndex = 7;
@@ -102,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(443, 178);
+            this.label2.Location = new System.Drawing.Point(441, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 8;
@@ -119,7 +120,7 @@
             // 
             // descTextBox
             // 
-            this.descTextBox.Location = new System.Drawing.Point(441, 417);
+            this.descTextBox.Location = new System.Drawing.Point(439, 477);
             this.descTextBox.Multiline = true;
             this.descTextBox.Name = "descTextBox";
             this.descTextBox.Size = new System.Drawing.Size(405, 257);
@@ -128,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 388);
+            this.label4.Location = new System.Drawing.Point(439, 448);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 12;
@@ -215,11 +216,21 @@
             this.endDateMaskedTextBox.TabIndex = 23;
             this.endDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
+            // plus7Button
+            // 
+            this.plus7Button.Location = new System.Drawing.Point(443, 213);
+            this.plus7Button.Name = "plus7Button";
+            this.plus7Button.Size = new System.Drawing.Size(112, 34);
+            this.plus7Button.TabIndex = 25;
+            this.plus7Button.Text = "+7Day";
+            this.plus7Button.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1291, 815);
+            this.Controls.Add(this.plus7Button);
             this.Controls.Add(this.endTimeMaskedTextBox);
             this.Controls.Add(this.endDateMaskedTextBox);
             this.Controls.Add(this.startTimeMaskedTextBox);
@@ -269,5 +280,6 @@
         private MaskedTextBox startTimeMaskedTextBox;
         private MaskedTextBox endTimeMaskedTextBox;
         private MaskedTextBox endDateMaskedTextBox;
+        private Button plus7Button;
     }
 }
