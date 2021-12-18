@@ -200,13 +200,12 @@ namespace ConnpassAutomator
         private void plus7Button_Click(object sender, EventArgs e)
         {
             if (!startDateMaskedTextBox.MaskFull) return;
-            if (!DateTime.TryParse(startDateMaskedTextBox.Text, out var date)) return;
+            if (!DateTime.TryParse(startDateMaskedTextBox.Text, out var startDate)) return;
+            if (!DateTime.TryParse(endDateMaskedTextBox.Text, out var endDate)) return;
 
-            //開始日の終了日が違うケースがある
             //終了日もチェックしていない
-            var plusDay = date.AddDays(7).ToString();
-            startDateMaskedTextBox.Text = plusDay;
-            endDateMaskedTextBox.Text = plusDay;
+            startDateMaskedTextBox.Text = startDate.AddDays(7).ToString();
+            endDateMaskedTextBox.Text = endDate.AddDays(7).ToString();
         }
     }
 }
