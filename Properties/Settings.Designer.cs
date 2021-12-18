@@ -58,5 +58,89 @@ namespace ConnpassAutomator.Properties {
                 this["Title"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CopySourceEventTitle {
+            get {
+                return ((string)(this["CopySourceEventTitle"]));
+            }
+            set {
+                this["CopySourceEventTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Subtitle {
+            get {
+                return ((string)(this["Subtitle"]));
+            }
+            set {
+                this["Subtitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StartDate {
+            get {
+                return ((string)(this["StartDate"]));
+            }
+            set {
+                this["StartDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StartTime {
+            get {
+                return ((string)(this["StartTime"]));
+            }
+            set {
+                this["StartTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EndDate {
+            get {
+                return ((string)(this["EndDate"]));
+            }
+            set {
+                this["EndDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EndTime {
+            get {
+                return ((string)(this["EndTime"]));
+            }
+            set {
+                this["EndTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DescText {
+            get {
+                return ((string)(this["DescText"]));
+            }
+            set {
+                this["DescText"] = value;
+            }
+        }
     }
 }

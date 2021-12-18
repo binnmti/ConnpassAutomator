@@ -43,7 +43,7 @@ namespace ConnpassAutomator
 
                 //C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5;
                 var title = element.FindElement(By.CssSelector(".title > a")).Text;
-                if (title.Contains(eventTextBox.Text) && status == "終了")
+                if (title.Contains(copySourceEventTitleTextBox.Text) && status == "終了")
                 {
                     element.FindElement(By.ClassName("icon_gray_copy")).Click();
                     break;
@@ -170,7 +170,14 @@ namespace ConnpassAutomator
             Settings.Default.UserName = userNameTextBox.Text;
             Settings.Default.Password = passwordTextBox.Text;
             
-            Settings.Default.Title = eventTextBox.Text;
+            Settings.Default.CopySourceEventTitle = copySourceEventTitleTextBox.Text;
+            Settings.Default.Title = titleTextBox.Text;
+            Settings.Default.Subtitle = subTitleTextBox.Text;
+            Settings.Default.StartDate = startDateTextBox.Text;
+            Settings.Default.StartTime= startTimeTextBox.Text;
+            Settings.Default.EndDate = endDateTextBox.Text;
+            Settings.Default.EndTime = endTimeTextBox.Text;
+            Settings.Default.DescText = descTextBox.Text;
 
             Settings.Default.Save();
         }
@@ -179,7 +186,15 @@ namespace ConnpassAutomator
         {
             userNameTextBox.Text = Settings.Default.UserName;
             passwordTextBox.Text = Settings.Default.Password;
-            eventTextBox.Text = Settings.Default.Title;
+
+            copySourceEventTitleTextBox.Text = Settings.Default.CopySourceEventTitle;
+            titleTextBox.Text= Settings.Default.Title;
+            subTitleTextBox.Text = Settings.Default.Subtitle;
+            startDateTextBox.Text = Settings.Default.StartDate;
+            startTimeTextBox.Text = Settings.Default.StartTime;
+            endDateTextBox.Text = Settings.Default.EndDate;
+            endTimeTextBox.Text = Settings.Default.EndTime;
+            descTextBox.Text = Settings.Default.DescText;
         }
     }
 }
