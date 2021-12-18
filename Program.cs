@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace ConnpassAutomator
 {
     internal static class Program
@@ -9,6 +11,9 @@ namespace ConnpassAutomator
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            //“ú–{Œê‚µ‚©‹–‚³‚È‚¢
+            CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("ja-JP");
+            CultureInfo.CurrentUICulture = CultureInfo.CreateSpecificCulture("ja-JP");
             Application.Run(new Form1());
         }
     }
