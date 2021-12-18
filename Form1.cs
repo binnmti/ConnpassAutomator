@@ -206,5 +206,45 @@ namespace ConnpassAutomator
             startDateMaskedTextBox.Text = startDate.AddDays(7).ToString();
             endDateMaskedTextBox.Text = endDate.AddDays(7).ToString();
         }
+
+        private void titlePlusButton_Click(object sender, EventArgs e)
+        {
+            //最後から１文字ずつループで回して、数字が見つかった場合にそれを+1して返す
+
+            //数字の範囲を取り出す
+            int endIndex = -1;
+            for (int i = titleTextBox.Text.Length - 1; i >= 0; i--)
+            {
+                var c = titleTextBox.Text[i];
+                if (c >= '0' && c <= '9')
+                {
+                    endIndex = i;
+                    break;
+                }
+            }
+            if (endIndex == -1) return;
+
+            int startIndex = -1;
+            for (int i = endIndex; i >= 0; i--)
+            {
+                var c = titleTextBox.Text[i];
+                if (c < '0' || c > '9')
+                {
+                    startIndex = i;
+                    break;
+                }
+            }
+            //範囲の数字を抜く
+            var numText = titleTextBox.Text.Substring(startIndex + 1, endIndex - startIndex);
+            var num = int.Parse(numText);
+            //数字インクリメント
+            num++;
+            //文字列にインクリメントした数字をさっきとった範囲に入れなおす
+            var mae = titleTextBox.Text.Substring(0, startIndex + 1);
+            var naka = num.ToString();
+            var ushiro = titleTextBox.Text.Substring(endIndex + 1);
+
+            titleTextBox.Text = mae + naka + ushiro;
+        }
     }
 }

@@ -48,6 +48,7 @@
             this.endTimeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.endDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.plus7Button = new System.Windows.Forms.Button();
+            this.titlePlusButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -87,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 2);
+            this.label1.Location = new System.Drawing.Point(443, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 25);
             this.label1.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             // subTitleTextBox
             // 
-            this.subTitleTextBox.Location = new System.Drawing.Point(441, 136);
+            this.subTitleTextBox.Location = new System.Drawing.Point(441, 204);
             this.subTitleTextBox.Name = "subTitleTextBox";
             this.subTitleTextBox.Size = new System.Drawing.Size(284, 31);
             this.subTitleTextBox.TabIndex = 7;
@@ -103,7 +104,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 107);
+            this.label2.Location = new System.Drawing.Point(441, 175);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 8;
@@ -112,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 250);
+            this.label3.Location = new System.Drawing.Point(441, 287);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 10;
@@ -120,7 +121,7 @@
             // 
             // descTextBox
             // 
-            this.descTextBox.Location = new System.Drawing.Point(439, 477);
+            this.descTextBox.Location = new System.Drawing.Point(439, 514);
             this.descTextBox.Multiline = true;
             this.descTextBox.Name = "descTextBox";
             this.descTextBox.Size = new System.Drawing.Size(405, 257);
@@ -129,7 +130,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(439, 448);
+            this.label4.Location = new System.Drawing.Point(439, 485);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 12;
@@ -146,7 +147,7 @@
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(456, 38);
+            this.titleTextBox.Location = new System.Drawing.Point(456, 110);
             this.titleTextBox.Multiline = true;
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(405, 62);
@@ -156,7 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(441, 327);
+            this.label6.Location = new System.Drawing.Point(441, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 25);
             this.label6.TabIndex = 16;
@@ -182,7 +183,7 @@
             // 
             // startDateMaskedTextBox
             // 
-            this.startDateMaskedTextBox.Location = new System.Drawing.Point(443, 278);
+            this.startDateMaskedTextBox.Location = new System.Drawing.Point(443, 315);
             this.startDateMaskedTextBox.Mask = "0000/00/00";
             this.startDateMaskedTextBox.Name = "startDateMaskedTextBox";
             this.startDateMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -191,7 +192,7 @@
             // 
             // startTimeMaskedTextBox
             // 
-            this.startTimeMaskedTextBox.Location = new System.Drawing.Point(599, 278);
+            this.startTimeMaskedTextBox.Location = new System.Drawing.Point(599, 315);
             this.startTimeMaskedTextBox.Mask = "00:00";
             this.startTimeMaskedTextBox.Name = "startTimeMaskedTextBox";
             this.startTimeMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -200,7 +201,7 @@
             // 
             // endTimeMaskedTextBox
             // 
-            this.endTimeMaskedTextBox.Location = new System.Drawing.Point(599, 355);
+            this.endTimeMaskedTextBox.Location = new System.Drawing.Point(599, 392);
             this.endTimeMaskedTextBox.Mask = "00:00";
             this.endTimeMaskedTextBox.Name = "endTimeMaskedTextBox";
             this.endTimeMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -209,7 +210,7 @@
             // 
             // endDateMaskedTextBox
             // 
-            this.endDateMaskedTextBox.Location = new System.Drawing.Point(443, 355);
+            this.endDateMaskedTextBox.Location = new System.Drawing.Point(443, 392);
             this.endDateMaskedTextBox.Mask = "0000/00/00";
             this.endDateMaskedTextBox.Name = "endDateMaskedTextBox";
             this.endDateMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -218,7 +219,7 @@
             // 
             // plus7Button
             // 
-            this.plus7Button.Location = new System.Drawing.Point(443, 213);
+            this.plus7Button.Location = new System.Drawing.Point(443, 250);
             this.plus7Button.Name = "plus7Button";
             this.plus7Button.Size = new System.Drawing.Size(112, 34);
             this.plus7Button.TabIndex = 25;
@@ -226,11 +227,22 @@
             this.plus7Button.UseVisualStyleBackColor = true;
             this.plus7Button.Click += new System.EventHandler(this.plus7Button_Click);
             // 
+            // titlePlusButton
+            // 
+            this.titlePlusButton.Location = new System.Drawing.Point(878, 120);
+            this.titlePlusButton.Name = "titlePlusButton";
+            this.titlePlusButton.Size = new System.Drawing.Size(112, 34);
+            this.titlePlusButton.TabIndex = 26;
+            this.titlePlusButton.Text = "+1";
+            this.titlePlusButton.UseVisualStyleBackColor = true;
+            this.titlePlusButton.Click += new System.EventHandler(this.titlePlusButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1291, 815);
+            this.Controls.Add(this.titlePlusButton);
             this.Controls.Add(this.plus7Button);
             this.Controls.Add(this.endTimeMaskedTextBox);
             this.Controls.Add(this.endDateMaskedTextBox);
@@ -282,5 +294,6 @@
         private MaskedTextBox endTimeMaskedTextBox;
         private MaskedTextBox endDateMaskedTextBox;
         private Button plus7Button;
+        private Button titlePlusButton;
     }
 }
