@@ -202,6 +202,8 @@ namespace ConnpassAutomator
             if (!startDateMaskedTextBox.MaskFull) return;
             if (!DateTime.TryParse(startDateMaskedTextBox.Text, out var date)) return;
 
+            //開始日の終了日が違うケースがある
+            //終了日もチェックしていない
             var plusDay = date.AddDays(7).ToString();
             startDateMaskedTextBox.Text = plusDay;
             endDateMaskedTextBox.Text = plusDay;
