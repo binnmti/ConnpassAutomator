@@ -214,24 +214,13 @@ namespace ConnpassAutomator
 
         private string MagicIncrement(string title)
         {
-            //”Žš‚Ì”ÍˆÍ‚ðŽæ‚èo‚·
-            int endIndex = -1;
-            int startIndex = -1;
-            for (int i = title.Length - 1; i >= 0; i--)
-            {
-                if (endIndex == -1 && title[i] >= '0' && title[i] <= '9')
-                {
-                    endIndex = i;
-                }
-                else if (endIndex != -1 && (title[i] < '0' || title[i] > '9'))
-                {
-                    startIndex = i;
-                    break;
-                }
-            }
-            if (endIndex == -1) return "";
-            var num = int.Parse(title[(startIndex + 1)..(endIndex + 1)]);
-            return $"{title[..(startIndex + 1)]}{++num}{title[(endIndex + 1)..]}";
+            var numText = new string(title.Reverse()
+                .SkipWhile(x => x < '0' || x > '9')
+                .TakeWhile(x => x >= '0' && x <= '9')
+                .Reverse()
+                .ToArray());
+            var num = int.Parse(numText);
+            return $"{title[..title.LastIndexOf(numText)]}{++num}{title[(title.LastIndexOf(numText) + numText.Length)..]}";
         }
     }
 }
