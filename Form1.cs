@@ -219,7 +219,7 @@ namespace ConnpassAutomator
                 .TakeWhile(x => x >= '0' && x <= '9')
                 .Reverse()
                 .ToArray());
-            var num = int.Parse(numText);
+            if(!int.TryParse(numText, out var num)) return title;
             return $"{title[..title.LastIndexOf(numText)]}{++num}{title[(title.LastIndexOf(numText) + numText.Length)..]}";
         }
     }
