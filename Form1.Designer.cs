@@ -49,11 +49,14 @@
             this.endDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.plus7Button = new System.Windows.Forms.Button();
             this.titlePlusButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1119, 640);
+            this.button1.Location = new System.Drawing.Point(156, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 33);
             this.button1.TabIndex = 0;
@@ -63,14 +66,14 @@
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(1080, 532);
+            this.userNameTextBox.Location = new System.Drawing.Point(117, 51);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(150, 31);
             this.userNameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(1080, 588);
+            this.passwordTextBox.Location = new System.Drawing.Point(117, 107);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(150, 31);
@@ -78,7 +81,7 @@
             // 
             // copySourceEventTitleTextBox
             // 
-            this.copySourceEventTitleTextBox.Location = new System.Drawing.Point(11, 33);
+            this.copySourceEventTitleTextBox.Location = new System.Drawing.Point(91, 44);
             this.copySourceEventTitleTextBox.Multiline = true;
             this.copySourceEventTitleTextBox.Name = "copySourceEventTitleTextBox";
             this.copySourceEventTitleTextBox.Size = new System.Drawing.Size(405, 66);
@@ -88,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 74);
+            this.label1.Location = new System.Drawing.Point(78, 171);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 25);
             this.label1.TabIndex = 4;
@@ -96,7 +99,7 @@
             // 
             // subTitleTextBox
             // 
-            this.subTitleTextBox.Location = new System.Drawing.Point(441, 204);
+            this.subTitleTextBox.Location = new System.Drawing.Point(76, 301);
             this.subTitleTextBox.Name = "subTitleTextBox";
             this.subTitleTextBox.Size = new System.Drawing.Size(284, 31);
             this.subTitleTextBox.TabIndex = 7;
@@ -104,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 175);
+            this.label2.Location = new System.Drawing.Point(76, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 8;
@@ -113,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 287);
+            this.label3.Location = new System.Drawing.Point(76, 384);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 10;
@@ -121,7 +124,7 @@
             // 
             // descTextBox
             // 
-            this.descTextBox.Location = new System.Drawing.Point(439, 514);
+            this.descTextBox.Location = new System.Drawing.Point(74, 611);
             this.descTextBox.Multiline = true;
             this.descTextBox.Name = "descTextBox";
             this.descTextBox.Size = new System.Drawing.Size(405, 257);
@@ -130,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(439, 485);
+            this.label4.Location = new System.Drawing.Point(74, 582);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 12;
@@ -139,7 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 7);
+            this.label5.Location = new System.Drawing.Point(91, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(283, 25);
             this.label5.TabIndex = 14;
@@ -147,7 +150,7 @@
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(456, 110);
+            this.titleTextBox.Location = new System.Drawing.Point(91, 207);
             this.titleTextBox.Multiline = true;
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(405, 62);
@@ -157,7 +160,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(441, 364);
+            this.label6.Location = new System.Drawing.Point(76, 461);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 25);
             this.label6.TabIndex = 16;
@@ -166,7 +169,7 @@
             // UserNamelabel
             // 
             this.UserNamelabel.AutoSize = true;
-            this.UserNamelabel.Location = new System.Drawing.Point(996, 537);
+            this.UserNamelabel.Location = new System.Drawing.Point(33, 56);
             this.UserNamelabel.Name = "UserNamelabel";
             this.UserNamelabel.Size = new System.Drawing.Size(84, 25);
             this.UserNamelabel.TabIndex = 8;
@@ -175,7 +178,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(1001, 593);
+            this.passwordLabel.Location = new System.Drawing.Point(38, 112);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(79, 25);
             this.passwordLabel.TabIndex = 8;
@@ -183,7 +186,7 @@
             // 
             // startDateMaskedTextBox
             // 
-            this.startDateMaskedTextBox.Location = new System.Drawing.Point(443, 315);
+            this.startDateMaskedTextBox.Location = new System.Drawing.Point(78, 412);
             this.startDateMaskedTextBox.Mask = "0000/00/00";
             this.startDateMaskedTextBox.Name = "startDateMaskedTextBox";
             this.startDateMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -192,7 +195,7 @@
             // 
             // startTimeMaskedTextBox
             // 
-            this.startTimeMaskedTextBox.Location = new System.Drawing.Point(599, 315);
+            this.startTimeMaskedTextBox.Location = new System.Drawing.Point(234, 412);
             this.startTimeMaskedTextBox.Mask = "00:00";
             this.startTimeMaskedTextBox.Name = "startTimeMaskedTextBox";
             this.startTimeMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -201,7 +204,7 @@
             // 
             // endTimeMaskedTextBox
             // 
-            this.endTimeMaskedTextBox.Location = new System.Drawing.Point(599, 392);
+            this.endTimeMaskedTextBox.Location = new System.Drawing.Point(234, 489);
             this.endTimeMaskedTextBox.Mask = "00:00";
             this.endTimeMaskedTextBox.Name = "endTimeMaskedTextBox";
             this.endTimeMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -210,7 +213,7 @@
             // 
             // endDateMaskedTextBox
             // 
-            this.endDateMaskedTextBox.Location = new System.Drawing.Point(443, 392);
+            this.endDateMaskedTextBox.Location = new System.Drawing.Point(78, 489);
             this.endDateMaskedTextBox.Mask = "0000/00/00";
             this.endDateMaskedTextBox.Name = "endDateMaskedTextBox";
             this.endDateMaskedTextBox.Size = new System.Drawing.Size(150, 31);
@@ -219,7 +222,7 @@
             // 
             // plus7Button
             // 
-            this.plus7Button.Location = new System.Drawing.Point(443, 250);
+            this.plus7Button.Location = new System.Drawing.Point(78, 347);
             this.plus7Button.Name = "plus7Button";
             this.plus7Button.Size = new System.Drawing.Size(112, 34);
             this.plus7Button.TabIndex = 25;
@@ -229,7 +232,7 @@
             // 
             // titlePlusButton
             // 
-            this.titlePlusButton.Location = new System.Drawing.Point(878, 120);
+            this.titlePlusButton.Location = new System.Drawing.Point(513, 217);
             this.titlePlusButton.Name = "titlePlusButton";
             this.titlePlusButton.Size = new System.Drawing.Size(112, 34);
             this.titlePlusButton.TabIndex = 26;
@@ -237,29 +240,48 @@
             this.titlePlusButton.UseVisualStyleBackColor = true;
             this.titlePlusButton.Click += new System.EventHandler(this.titlePlusButton_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(375, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(717, 33);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.titlePlusButton);
+            this.groupBox1.Controls.Add(this.plus7Button);
+            this.groupBox1.Controls.Add(this.endTimeMaskedTextBox);
+            this.groupBox1.Controls.Add(this.endDateMaskedTextBox);
+            this.groupBox1.Controls.Add(this.startTimeMaskedTextBox);
+            this.groupBox1.Controls.Add(this.startDateMaskedTextBox);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.titleTextBox);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.descTextBox);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.subTitleTextBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.copySourceEventTitleTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(375, 58);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(717, 896);
+            this.groupBox1.TabIndex = 28;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1291, 815);
-            this.Controls.Add(this.titlePlusButton);
-            this.Controls.Add(this.plus7Button);
-            this.Controls.Add(this.endTimeMaskedTextBox);
-            this.Controls.Add(this.endDateMaskedTextBox);
-            this.Controls.Add(this.startTimeMaskedTextBox);
-            this.Controls.Add(this.startDateMaskedTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.descTextBox);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1135, 1007);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.UserNamelabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.subTitleTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.copySourceEventTitleTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.button1);
@@ -267,6 +289,8 @@
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +319,7 @@
         private MaskedTextBox endDateMaskedTextBox;
         private Button plus7Button;
         private Button titlePlusButton;
+        private ComboBox comboBox1;
+        private GroupBox groupBox1;
     }
 }

@@ -217,7 +217,7 @@ namespace ConnpassAutomator
 
         private string MagicIncrement(string title)
         {
-            return new DefaultMagicIncrementProvider().Increment(title);
+            return new LastBareIntegerMagicIncrementProvider().Increment(title);
         }
 
         private interface IMagicIncrementProvider
