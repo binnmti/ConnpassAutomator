@@ -2,6 +2,9 @@ using ConnpassAutomator.Properties;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using System.Globalization;
+using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace ConnpassAutomator
 {
@@ -214,13 +217,40 @@ namespace ConnpassAutomator
 
         private string MagicIncrement(string title)
         {
-            var numText = new string(title.Reverse()
-                .SkipWhile(x => x < '0' || x > '9')
-                .TakeWhile(x => x >= '0' && x <= '9')
-                .Reverse()
-                .ToArray());
-            if(!int.TryParse(numText, out var num)) return title;
-            return $"{title[..title.LastIndexOf(numText)]}{++num}{title[(title.LastIndexOf(numText) + numText.Length)..]}";
+            return new DefaultMagicIncrementProvider().Increment(title);
         }
+
+        private interface IMagicIncrementProvider
+        {
+            public string Increment(string naturalText);
+        }
+
+        private class DefaultMagicIncrementProvider : IMagicIncrementProvider
+        {
+            public string Increment(string title)
+            {
+                var numText = new string(title.Reverse()
+                    .SkipWhile(x => x < '0' || x > '9')
+                    .TakeWhile(x => x >= '0' && x <= '9')
+                    .Reverse()
+                    .ToArray());
+                if (!int.TryParse(numText, out var num)) return title;
+                return $"{title[..title.LastIndexOf(numText)]}{++num}{title[(title.LastIndexOf(numText) + numText.Length)..]}";
+            }
+        }
+
+        private class LastBareIntegerMagicIncrementProvider : IMagicIncrementProvider
+        {
+            public string Increment(string naturalText)
+            {
+                var parse = (string text) => BigInteger.Parse(text, NumberStyles.AllowLeadingSign);
+                var format = (BigInteger value) => value.ToString("D");
+                var increment = (string text) => format(parse(text) + 1);
+
+                return Regex.Replace(naturalText, @"-?\d+(?!.*\d)", match => increment(match.Value));
+            }
+
+        }
+
     }
 }
