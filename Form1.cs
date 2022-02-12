@@ -8,20 +8,35 @@ using System.Text.RegularExpressions;
 
 namespace ConnpassAutomator
 {
-    record ConnpassWillbeRenamed(
-        string UserName,
-        string Password,
-        IList<Event> EventList);
 
-    record Event(
-        string CopySourceEventTitle,
+    record ConnpassWillbeRenamed(
+        Credential Credential,
+        IList<Project> Projects
+    );
+
+    record Credential(
+        string UserName,
+        string Password
+    );
+
+    record Project(
+        CopySource CopySource,
+        Changeset Changeset
+    );
+
+    record CopySource(
+        string EventTitle
+    );
+
+    record Changeset(
         string EventTitle,
-        string? SubEventTitle,
+        string SubEventTitle,
         string StartDate,
         string StartTime,
         string EndDate,
         string EndTime,
-        string Explanation);
+        string Explanation
+    );
 
     public partial class Form1 : Form
     {
