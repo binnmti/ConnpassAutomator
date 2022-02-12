@@ -187,6 +187,8 @@ namespace ConnpassAutomator
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Settings.Default.Upgrade();
+
             userNameTextBox.Text = Settings.Default.UserName;
             passwordTextBox.Text = Settings.Default.Password;
 
