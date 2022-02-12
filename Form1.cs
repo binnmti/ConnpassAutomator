@@ -8,6 +8,21 @@ using System.Text.RegularExpressions;
 
 namespace ConnpassAutomator
 {
+    record ConnpassWillbeRenamed(
+        string UserName,
+        string Password,
+        IList<Event> EventList);
+
+    record Event(
+        string CopySourceEventTitle,
+        string EventTitle,
+        string? SubEventTitle,
+        string StartDate,
+        string StartTime,
+        string EndDate,
+        string EndTime,
+        string Explanation);
+
     public partial class Form1 : Form
     {
         private ChromeDriver Driver { get; set; }
@@ -17,6 +32,7 @@ namespace ConnpassAutomator
         {
             InitializeComponent();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
