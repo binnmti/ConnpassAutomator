@@ -210,25 +210,12 @@ namespace ConnpassAutomator
                 endDateMaskedTextBox.Text, endTimeMaskedTextBox.Text, descTextBox.Text))
             };
             Settings.Default.ConnpassWillbeRenamed = JsonSerializer.Serialize(new ConnpassWillbeRenamed(credential, projects));
-
-            //Settings.Default.UserName = userNameTextBox.Text;
-            //Settings.Default.Password = passwordTextBox.Text;
-            //Settings.Default.CopySourceEventTitle = copySourceEventTitleTextBox.Text;
-            //Settings.Default.Title = titleTextBox.Text;
-            //Settings.Default.Subtitle = subTitleTextBox.Text;
-            //Settings.Default.StartDate = startDateMaskedTextBox.Text;
-            //Settings.Default.StartTime= startTimeMaskedTextBox.Text;
-            //Settings.Default.EndDate = endDateMaskedTextBox.Text;
-            //Settings.Default.EndTime = endTimeMaskedTextBox.Text;
-            //Settings.Default.DescText = descTextBox.Text;
-
             Settings.Default.Save();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             Settings.Default.Upgrade();
-
             if (string.IsNullOrEmpty(Settings.Default.ConnpassWillbeRenamed)) return;
 
             var connpassWillbeRenamed = JsonSerializer.Deserialize<ConnpassWillbeRenamed>(Settings.Default.ConnpassWillbeRenamed);
@@ -243,18 +230,6 @@ namespace ConnpassAutomator
             endDateMaskedTextBox.Text = project.Changeset.EndDate;
             endTimeMaskedTextBox.Text = project.Changeset.EndTime;
             descTextBox.Text = project.Changeset.Explanation;
-
-            //userNameTextBox.Text = Settings.Default.UserName;
-            //passwordTextBox.Text = Settings.Default.Password;
-
-            //copySourceEventTitleTextBox.Text = Settings.Default.CopySourceEventTitle;
-            //titleTextBox.Text= Settings.Default.Title;
-            //subTitleTextBox.Text = Settings.Default.Subtitle;
-            //startDateMaskedTextBox.Text = Settings.Default.StartDate;
-            //startTimeMaskedTextBox.Text = Settings.Default.StartTime;
-            //endDateMaskedTextBox.Text = Settings.Default.EndDate;
-            //endTimeMaskedTextBox.Text = Settings.Default.EndTime;
-            //descTextBox.Text = Settings.Default.DescText;
         }
 
         private void plus7Button_Click(object sender, EventArgs e)
