@@ -9,45 +9,44 @@ using System.Text.RegularExpressions;
 
 namespace ConnpassAutomator
 {
-
-    record ConnpassWillbeRenamed(
-        Credential Credential,
-        IList<Project> Projects
-    )
+    internal class ConnpassWillbeRenamed
     {
-        public ConnpassWillbeRenamed() : this(new(), new List<Project>())
-        {
-        }
+        internal ConnpassWillbeRenamed() { }
+        internal Credential Credential { get; set; } = new ();
+        internal IList<Project> Projects { get; set; } = new List<Project>();
     }
 
-    record Credential(
-        string UserName,
-        string Password
-    )
+    internal class Credential
     {
-        public Credential() : this(string.Empty, string.Empty)
-        {
-        }
+        internal Credential() { }
+        internal string UserName { get; set; } = "";
+        internal string Password { get; set; } = "";
     }
 
-    record Project(
-        CopySource CopySource,
-        Changeset Changeset
-    );
+    internal class Project
+    {
+        internal Project() { }
+        internal CopySource CopySource { get; set; } = new CopySource();
+        internal Changeset Changeset { get; set; } = new Changeset();
+    }
 
-    record CopySource(
-        string EventTitle
-    );
+    internal class CopySource
+    {
+        internal CopySource() { }
+        internal string EventTitle { get; set; } = "";
+    }
 
-    record Changeset(
-        string EventTitle,
-        string SubEventTitle,
-        string StartDate,
-        string StartTime,
-        string EndDate,
-        string EndTime,
-        string Explanation
-    );
+    internal class Changeset
+    {
+        internal Changeset() { }
+        internal string EventTitle { get; set; } = "";
+        internal string SubEventTitle { get; set; } = "";
+        internal string StartDate { get; set; } = "";
+        internal string StartTime { get; set; } = "";
+        internal string EndDate { get; set; } = "";
+        internal string EndTime { get; set; } = "";
+        internal string Explanation { get; set; } = "";
+    }
 
     public partial class Form1 : Form
     {
@@ -248,15 +247,34 @@ namespace ConnpassAutomator
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             // FIXME: プロパティである ConnpassWillbeRenamed を使わないといけない
-            var credential = new Credential(userNameTextBox.Text, passwordTextBox.Text);
-            var projects = new List<Project>
+            var credential = new Credential()
             {
-                new Project(new CopySource(copySourceEventTitleTextBox.Text),
-                new Changeset(titleTextBox.Text, subTitleTextBox.Text, startDateMaskedTextBox.Text, startTimeMaskedTextBox.Text,
-                endDateMaskedTextBox.Text, endTimeMaskedTextBox.Text, descTextBox.Text))
+                UserName = userNameTextBox.Text,
+                Password = passwordTextBox.Text
             };
 
-            ConnpassWillbeRenamed = new(credential, projects);
+            var projects = new List<Project>
+            {
+                new Project(){
+                    CopySource = new CopySource()
+                    {
+                        EventTitle = copySourceEventTitleTextBox.Text,
+                    },
+                    Changeset = new Changeset()
+                    {
+                        EventTitle = titleTextBox.Text,
+                        SubEventTitle = subTitleTextBox.Text,
+                        StartDate = startDateMaskedTextBox.Text,
+                        StartTime = startTimeMaskedTextBox.Text,
+                        EndDate = endDateMaskedTextBox.Text,
+                        EndTime = endTimeMaskedTextBox.Text,
+                        Explanation = descTextBox.Text
+                    }
+                }
+            };
+
+            ConnpassWillbeRenamed = new ConnpassWillbeRenamed()
+            { Credential = credential, Projects = projects };
         }
 
         private void Form1_Load(object sender, EventArgs e)
