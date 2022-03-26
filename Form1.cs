@@ -284,5 +284,59 @@ namespace ConnpassAutomator
 
         }
 
+        private void userNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copySourceEventTitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subTitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startDateMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startTimeMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void endDateMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void endTimeMaskedTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
