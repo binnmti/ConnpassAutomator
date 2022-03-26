@@ -12,7 +12,7 @@ namespace ConnpassAutomator
     internal class ConnpassWillbeRenamed
     {
         internal ConnpassWillbeRenamed() { }
-        internal Credential Credential { get; set; } = new ();
+        internal Credential Credential { get; set; } = new();
         internal IList<Project> Projects { get; set; } = new List<Project>();
     }
 
@@ -79,7 +79,7 @@ namespace ConnpassAutomator
         private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
         {
             Settings.Default.Upgrade();
-            
+
             if (string.IsNullOrEmpty(Settings.Default.ConnpassWillbeRenamed))
             {
                 return new();
@@ -346,59 +346,92 @@ namespace ConnpassAutomator
 
         }
 
+        private Project GetCurrentProject()
+        {
+            // TODO:Ç´ÇøÇÒÇ∆ÇµÇΩéÊìæÇ…Ç∑ÇÈ
+            if (ConnpassWillbeRenamed.Projects.Count == 0)
+            {
+                ConnpassWillbeRenamed.Projects.Add(new());
+            }
+            return ConnpassWillbeRenamed.Projects[0];
+        }
+        private void SetCurrentProject(int index)
+        {
+            // TODO:ï\é¶ÇÃêÿÇËë÷Ç¶
+        }
+
         private void userNameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = userNameTextBox.Text;
+            ConnpassWillbeRenamed.Credential.UserName = changedText;
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = passwordTextBox.Text;
+            ConnpassWillbeRenamed.Credential.Password = changedText;
         }
 
         private void copySourceEventTitleTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = copySourceEventTitleTextBox.Text;
+            Project project = GetCurrentProject();
+            project.CopySource.EventTitle = changedText;
         }
 
         private void titleTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = titleTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.EventTitle = changedText;
         }
 
         private void subTitleTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = subTitleTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.SubEventTitle = changedText;
         }
 
         private void startDateMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = startDateMaskedTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.StartDate = changedText;
         }
 
         private void startTimeMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = startTimeMaskedTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.StartTime = changedText;
         }
 
         private void endDateMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = endDateMaskedTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.EndDate = changedText;
         }
 
         private void endTimeMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = endTimeMaskedTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.EndTime = changedText;
         }
 
         private void descTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            string changedText = descTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.Explanation = changedText;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int changedIndex = comboBox1.SelectedIndex;
+            SetCurrentProject(changedIndex);
         }
     }
 }
