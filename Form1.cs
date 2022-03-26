@@ -13,12 +13,22 @@ namespace ConnpassAutomator
     record ConnpassWillbeRenamed(
         Credential Credential,
         IList<Project> Projects
-    );
+    )
+    {
+        public ConnpassWillbeRenamed() : this(new(), new List<Project>())
+        {
+        }
+    }
 
     record Credential(
         string UserName,
         string Password
-    );
+    )
+    {
+        public Credential() : this(string.Empty, string.Empty)
+        {
+        }
+    }
 
     record Project(
         CopySource CopySource,
@@ -44,11 +54,46 @@ namespace ConnpassAutomator
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
+        private ConnpassWillbeRenamed ConnpassWillbeRenamed { get; set; }
+
         public Form1()
         {
             InitializeComponent();
+            ConnpassWillbeRenamed = LoadConnpassWillbeRenamed();
         }
 
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+
+            SaveConnpassWillbeRenamed(ConnpassWillbeRenamed);
+        }
+
+        private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
+        {
+            Settings.Default.Upgrade();
+            
+            if (string.IsNullOrEmpty(Settings.Default.ConnpassWillbeRenamed))
+            {
+                return new();
+            }
+
+            return JsonSerializer.Deserialize<ConnpassWillbeRenamed>(Settings.Default.ConnpassWillbeRenamed);
+        }
+
+        private void SaveConnpassWillbeRenamed(ConnpassWillbeRenamed connpassWillbeRenamed)
+        {
+            Settings.Default.ConnpassWillbeRenamed = JsonSerializer.Serialize(connpassWillbeRenamed);
+            Settings.Default.Save();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -71,7 +116,7 @@ namespace ConnpassAutomator
             Thread.Sleep(1000);
 
             var elements = Driver.FindElements(By.ClassName("event_list"));
-            foreach(var element in elements)
+            foreach (var element in elements)
             {
                 //label_status_event mb_5 close 終了
                 var status = element.FindElement(By.ClassName("label_status_event")).Text;
@@ -202,6 +247,7 @@ namespace ConnpassAutomator
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // FIXME: プロパティである ConnpassWillbeRenamed を使わないといけない
             var credential = new Credential(userNameTextBox.Text, passwordTextBox.Text);
             var projects = new List<Project>
             {
@@ -209,16 +255,14 @@ namespace ConnpassAutomator
                 new Changeset(titleTextBox.Text, subTitleTextBox.Text, startDateMaskedTextBox.Text, startTimeMaskedTextBox.Text,
                 endDateMaskedTextBox.Text, endTimeMaskedTextBox.Text, descTextBox.Text))
             };
-            Settings.Default.ConnpassWillbeRenamed = JsonSerializer.Serialize(new ConnpassWillbeRenamed(credential, projects));
-            Settings.Default.Save();
+
+            ConnpassWillbeRenamed = new(credential, projects);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Settings.Default.Upgrade();
-            if (string.IsNullOrEmpty(Settings.Default.ConnpassWillbeRenamed)) return;
+            var connpassWillbeRenamed = ConnpassWillbeRenamed;
 
-            var connpassWillbeRenamed = JsonSerializer.Deserialize<ConnpassWillbeRenamed>(Settings.Default.ConnpassWillbeRenamed);
             userNameTextBox.Text = connpassWillbeRenamed.Credential.UserName;
             passwordTextBox.Text = connpassWillbeRenamed.Credential.Password;
             var project = connpassWillbeRenamed.Projects.First();
