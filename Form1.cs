@@ -1,4 +1,4 @@
-using ConnpassAutomator.Properties;
+using ConnpassAutomatorForWinForm.Properties;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -7,7 +7,7 @@ using System.Numerics;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace ConnpassAutomator
+namespace ConnpassAutomatorForWinForm
 {
     internal class ConnpassWillbeRenamed
     {
@@ -47,6 +47,9 @@ namespace ConnpassAutomator
         internal string EndTime { get; set; } = "";
         internal string Explanation { get; set; } = "";
     }
+
+
+
 
     public partial class Form1 : Form
     {

@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace ConnpassAutomator
+namespace ConnpassAutomatorForWinForm
 {
     internal static class Program
     {
