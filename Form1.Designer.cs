@@ -1,4 +1,4 @@
-﻿namespace ConnpassAutomator
+﻿namespace ConnpassAutomatorForWinForm
 {
     partial class Form1
     {
