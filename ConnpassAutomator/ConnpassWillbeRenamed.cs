@@ -6,6 +6,7 @@
         public Credential Credential { get; set; } = new();
         public IList<Project> Projects { get; set; } = new List<Project>();
 
+        //TODO:デフォルトのConnpassWillbeRenamedをどうするか
         static public ConnpassWillbeRenamed CreateDefault() => new();
     }
 
