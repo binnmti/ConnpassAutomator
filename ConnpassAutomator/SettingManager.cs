@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ConnpassAutomator;
 
-namespace ConnpassAutomator
+/// <summary>
+/// セーブ、ロードの責務を持つ
+/// </summary>
+public class SettingManager
 {
-    /// <summary>
-    /// セーブ、ロードの責務を持つ
-    /// </summary>
-    public class SettingManager
+    public static ConnpassWillbeRenamed Load()
     {
-        public static ConnpassWillbeRenamed Load()
-        {
-            return new ConnpassWillbeRenamed();
-        }
+        return new ConnpassWillbeRenamed();
+    }
 
-        public static void Save(ConnpassWillbeRenamed connpassWillbeRenamed)
-        {
-        }
+    public static void Save(ConnpassWillbeRenamed connpassWillbeRenamed)
+    {
     }
 }
