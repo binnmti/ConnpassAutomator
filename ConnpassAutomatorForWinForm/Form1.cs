@@ -1,17 +1,13 @@
 using ConnpassAutomator;
-using ConnpassAutomatorForWinForm.Properties;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Globalization;
 using System.Numerics;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace ConnpassAutomatorForWinForm
 {
-
-
     public partial class Form1 : Form
     {
         private ChromeDriver Driver { get; set; }
@@ -42,20 +38,12 @@ namespace ConnpassAutomatorForWinForm
 
         private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
         {
-            Settings.Default.Upgrade();
-
-            if (string.IsNullOrEmpty(Settings.Default.ConnpassWillbeRenamed))
-            {
-                return new();
-            }
-
-            return JsonSerializer.Deserialize<ConnpassWillbeRenamed>(Settings.Default.ConnpassWillbeRenamed);
+            return SettingManager.Load();
         }
 
         private void SaveConnpassWillbeRenamed(ConnpassWillbeRenamed connpassWillbeRenamed)
         {
-            Settings.Default.ConnpassWillbeRenamed = JsonSerializer.Serialize(connpassWillbeRenamed);
-            Settings.Default.Save();
+            SettingManager.Save(connpassWillbeRenamed);
         }
 
         private void button1_Click(object sender, EventArgs e)
