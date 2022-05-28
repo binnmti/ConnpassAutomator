@@ -1,0 +1,39 @@
+1.https://connpass.com/editmanage/
+
+	login
+		connpassのアカウントでログインする。
+
+	タイトルと部分一致で良いと思う。
+
+	（Zoom開催！）「C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.5」
+	「C#によるマルチコアのための非同期/並列処理プログラミング Zoomオンライン読書会 vol.ラスト！」
+
+2. confirmが出る。
+	→グローバルをつぶす。偽装する？
+		オブジェクトを置き換える。
+			chrome
+		
+	→alertオブジェクトがある？
+	https://www.selenium.dev/ja/documentation/webdriver/js_alerts_prompts_and_confirmations/
+
+	イベントページに遷移
+	https://connpass.com/event/231791/edit/
+
+
+	タイトル。編集。保存。
+	サブタイトル。編集。保存。
+	開催日時　1回クリックでモード変更
+	イベントの説明
+		ツール側でテンプレートを用意する。
+		★zoomのURL。
+
+	モーダルが出る。
+		即時公開ボタンを押す。
+
+3.https://connpass.com/event/231791/published/
+	イベントを公開しました
+
+その後
+	このイベントに申し込むは後回し。
+	それをTwitterに書き込む。
+
