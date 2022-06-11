@@ -1,16 +1,10 @@
-﻿using ConnpassAutomator;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConnpassAutomatorForWinForm
+namespace ConnpassAutomator
 {
-    internal class EventPublisher
+    public class EventPublisher
     {
         private readonly string chromeDriverDirectory;
 
