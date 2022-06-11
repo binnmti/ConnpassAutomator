@@ -13,12 +13,12 @@ namespace ConnpassAutomatorForWinForm
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
-        private ConnpassWillbeRenamed ConnpassWillbeRenamed { get; set; }
+        private Setting Setting { get; init; }
 
         public Form1()
         {
             InitializeComponent();
-            ConnpassWillbeRenamed = LoadConnpassWillbeRenamed();
+            Setting = LoadSetting();
         }
 
         /// <summary>
@@ -33,17 +33,27 @@ namespace ConnpassAutomatorForWinForm
             }
             base.Dispose(disposing);
 
-            SaveConnpassWillbeRenamed(ConnpassWillbeRenamed);
+            SaveSetting(Setting);
         }
 
-        private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
+        private Setting LoadSetting()
         {
-            return SettingManager.Load();
+            var loaded = SettingManager.Load();
+            return RequireAtLeastOneProject(loaded);
         }
 
-        private void SaveConnpassWillbeRenamed(ConnpassWillbeRenamed connpassWillbeRenamed)
+        private Setting RequireAtLeastOneProject(Setting setting) 
         {
-            SettingManager.Save(connpassWillbeRenamed);
+            var projects = setting.Projects;
+            if (projects.Count > 0) return setting;
+
+            projects.Add(Project.CreateDefault());
+            return setting;
+        }
+
+        private void SaveSetting(Setting setting)
+        {
+            SettingManager.Save(setting);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -196,46 +206,11 @@ namespace ConnpassAutomatorForWinForm
             Driver.Close();
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // FIXME: プロパティである ConnpassWillbeRenamed を使わないといけない
-            var credential = new Credential()
-            {
-                UserName = userNameTextBox.Text,
-                Password = passwordTextBox.Text
-            };
-
-            var projects = new List<Project>
-            {
-                new Project(){
-                    CopySource = new CopySource()
-                    {
-                        EventTitle = copySourceEventTitleTextBox.Text,
-                    },
-                    Changeset = new Changeset()
-                    {
-                        EventTitle = titleTextBox.Text,
-                        SubEventTitle = subTitleTextBox.Text,
-                        StartDate = startDateMaskedTextBox.Text,
-                        StartTime = startTimeMaskedTextBox.Text,
-                        EndDate = endDateMaskedTextBox.Text,
-                        EndTime = endTimeMaskedTextBox.Text,
-                        Explanation = descTextBox.Text
-                    }
-                }
-            };
-
-            ConnpassWillbeRenamed = new ConnpassWillbeRenamed()
-            { Credential = credential, Projects = projects };
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            var connpassWillbeRenamed = ConnpassWillbeRenamed;
-
-            userNameTextBox.Text = connpassWillbeRenamed.Credential.UserName;
-            passwordTextBox.Text = connpassWillbeRenamed.Credential.Password;
-            var project = connpassWillbeRenamed.Projects.First();
+            userNameTextBox.Text = Setting.Credential.UserName;
+            passwordTextBox.Text = Setting.Credential.Password;
+            var project = Setting.Projects.First();
             copySourceEventTitleTextBox.Text = project.CopySource.EventTitle;
             titleTextBox.Text = project.Changeset.EventTitle;
             subTitleTextBox.Text = project.Changeset.SubEventTitle;
@@ -300,12 +275,7 @@ namespace ConnpassAutomatorForWinForm
 
         private Project GetCurrentProject()
         {
-            // TODO:きちんとした取得にする
-            if (ConnpassWillbeRenamed.Projects.Count == 0)
-            {
-                ConnpassWillbeRenamed.Projects.Add(new());
-            }
-            return ConnpassWillbeRenamed.Projects[0];
+            return Setting.Projects[0];
         }
         private void SetCurrentProject(int index)
         {
@@ -315,13 +285,13 @@ namespace ConnpassAutomatorForWinForm
         private void userNameTextBox_TextChanged(object sender, EventArgs e)
         {
             string changedText = userNameTextBox.Text;
-            ConnpassWillbeRenamed.Credential.UserName = changedText;
+            Setting.Credential.UserName = changedText;
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
             string changedText = passwordTextBox.Text;
-            ConnpassWillbeRenamed.Credential.Password = changedText;
+            Setting.Credential.Password = changedText;
         }
 
         private void copySourceEventTitleTextBox_TextChanged(object sender, EventArgs e)
