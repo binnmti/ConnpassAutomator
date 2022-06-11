@@ -24,12 +24,12 @@ public class SettingManager
         }
     }
 
-    public static void Save(Setting connpassWillbeRenamed)
+    public static void Save(Setting setting)
     {
         var filePath = GetFilePath();
         // 例外はそのまま外に出す
         using var stream = File.Open(filePath, FileMode.Create);
-        JsonSerializer.Serialize(stream, connpassWillbeRenamed);
+        JsonSerializer.Serialize(stream, setting);
     }
 
     private static string GetFilePath()
