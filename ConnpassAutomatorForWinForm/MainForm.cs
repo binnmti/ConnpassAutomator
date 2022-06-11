@@ -7,8 +7,6 @@ namespace ConnpassAutomatorForWinForm
 {
     public partial class MainForm : Form
     {
-        //MainForm‚©‚çChromeDriver‚©‚çØ‚è—£‚·
-
         private Setting Setting { get; init; }
 
         public MainForm()
