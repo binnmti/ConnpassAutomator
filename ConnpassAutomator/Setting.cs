@@ -3,8 +3,8 @@
     public class Setting
     {
         public Setting() { }
-        public Credential Credential { get; set; } = new();
-        public IList<Project> Projects { get; set; } = new List<Project>();
+        public Credential Credential { get; init; } = new();
+        public IList<Project> Projects { get; init; } = new List<Project>();
 
         //TODO:デフォルトのSettingをどうするか
         static public Setting CreateDefault() => new();
@@ -20,8 +20,8 @@
     public class Project
     {
         public Project() { }
-        public CopySource CopySource { get; set; } = new CopySource();
-        public Changeset Changeset { get; set; } = new Changeset();
+        public CopySource CopySource { get; init; } = new CopySource();
+        public Changeset Changeset { get; init; } = new Changeset();
 
         public static Project CreateDefault() => new();
     }

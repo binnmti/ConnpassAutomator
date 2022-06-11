@@ -13,7 +13,7 @@ namespace ConnpassAutomatorForWinForm
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
-        private Setting Setting { get; set; }
+        private Setting Setting { get; init; }
 
         public Form1()
         {
