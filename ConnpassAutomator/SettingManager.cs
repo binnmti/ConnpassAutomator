@@ -8,23 +8,23 @@ namespace ConnpassAutomator;
 /// </summary>
 public class SettingManager
 {
-    public static ConnpassWillbeRenamed Load()
+    public static Setting Load()
     {
         var filePath = GetFilePath();
         try
         {
             using var stream = File.Open(filePath, FileMode.Open);
-            var data = JsonSerializer.Deserialize<ConnpassWillbeRenamed>(stream);
+            var data = JsonSerializer.Deserialize<Setting>(stream);
             Trace.Assert(data != null);
             return data!;
         }
         catch(FileNotFoundException /*ex*/)
         {
-            return ConnpassWillbeRenamed.CreateDefault();
+            return Setting.CreateDefault();
         }
     }
 
-    public static void Save(ConnpassWillbeRenamed connpassWillbeRenamed)
+    public static void Save(Setting connpassWillbeRenamed)
     {
         var filePath = GetFilePath();
         // 例外はそのまま外に出す

@@ -13,7 +13,7 @@ namespace ConnpassAutomatorForWinForm
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
-        private ConnpassWillbeRenamed ConnpassWillbeRenamed { get; set; }
+        private Setting ConnpassWillbeRenamed { get; set; }
 
         public Form1()
         {
@@ -36,13 +36,13 @@ namespace ConnpassAutomatorForWinForm
             SaveConnpassWillbeRenamed(ConnpassWillbeRenamed);
         }
 
-        private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
+        private Setting LoadConnpassWillbeRenamed()
         {
             var loaded = SettingManager.Load();
             return RequireAtLeastOneProject(loaded);
         }
 
-        private ConnpassWillbeRenamed RequireAtLeastOneProject(ConnpassWillbeRenamed connpassWillbeRenamed) 
+        private Setting RequireAtLeastOneProject(Setting connpassWillbeRenamed) 
         {
             var projects = connpassWillbeRenamed.Projects;
             if (projects.Count > 0) return connpassWillbeRenamed;
@@ -51,7 +51,7 @@ namespace ConnpassAutomatorForWinForm
             return connpassWillbeRenamed;
         }
 
-        private void SaveConnpassWillbeRenamed(ConnpassWillbeRenamed connpassWillbeRenamed)
+        private void SaveConnpassWillbeRenamed(Setting connpassWillbeRenamed)
         {
             SettingManager.Save(connpassWillbeRenamed);
         }
@@ -235,7 +235,7 @@ namespace ConnpassAutomatorForWinForm
                 }
             };
 
-            ConnpassWillbeRenamed = new ConnpassWillbeRenamed()
+            ConnpassWillbeRenamed = new Setting()
             { Credential = credential, Projects = projects };
         }
 

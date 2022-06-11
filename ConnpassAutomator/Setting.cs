@@ -1,13 +1,13 @@
 ﻿namespace ConnpassAutomator
 {
-    public class ConnpassWillbeRenamed
+    public class Setting
     {
-        public ConnpassWillbeRenamed() { }
+        public Setting() { }
         public Credential Credential { get; set; } = new();
         public IList<Project> Projects { get; set; } = new List<Project>();
 
         //TODO:デフォルトのConnpassWillbeRenamedをどうするか
-        static public ConnpassWillbeRenamed CreateDefault() => new();
+        static public Setting CreateDefault() => new();
     }
 
     public class Credential
