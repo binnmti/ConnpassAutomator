@@ -206,39 +206,6 @@ namespace ConnpassAutomatorForWinForm
             Driver.Close();
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // FIXME: プロパティである Setting を使わないといけない
-            var credential = new Credential()
-            {
-                UserName = userNameTextBox.Text,
-                Password = passwordTextBox.Text
-            };
-
-            var projects = new List<Project>
-            {
-                new Project(){
-                    CopySource = new CopySource()
-                    {
-                        EventTitle = copySourceEventTitleTextBox.Text,
-                    },
-                    Changeset = new Changeset()
-                    {
-                        EventTitle = titleTextBox.Text,
-                        SubEventTitle = subTitleTextBox.Text,
-                        StartDate = startDateMaskedTextBox.Text,
-                        StartTime = startTimeMaskedTextBox.Text,
-                        EndDate = endDateMaskedTextBox.Text,
-                        EndTime = endTimeMaskedTextBox.Text,
-                        Explanation = descTextBox.Text
-                    }
-                }
-            };
-
-            Setting = new Setting()
-            { Credential = credential, Projects = projects };
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             userNameTextBox.Text = Setting.Credential.UserName;
@@ -308,11 +275,6 @@ namespace ConnpassAutomatorForWinForm
 
         private Project GetCurrentProject()
         {
-            // TODO:きちんとした取得にする
-            if (Setting.Projects.Count == 0)
-            {
-                Setting.Projects.Add(new());
-            }
             return Setting.Projects[0];
         }
         private void SetCurrentProject(int index)
