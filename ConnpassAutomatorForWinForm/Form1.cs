@@ -38,7 +38,15 @@ namespace ConnpassAutomatorForWinForm
 
         private ConnpassWillbeRenamed LoadConnpassWillbeRenamed()
         {
-            return SettingManager.Load();
+            var loaded = SettingManager.Load();
+
+            var projects = loaded.Projects;
+            if (projects.Count == 0)
+            {
+                projects.Add(Project.CreateDefault());
+            }
+
+            return loaded;
         }
 
         private void SaveConnpassWillbeRenamed(ConnpassWillbeRenamed connpassWillbeRenamed)

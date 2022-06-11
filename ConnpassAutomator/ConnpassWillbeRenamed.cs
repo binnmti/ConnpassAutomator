@@ -22,6 +22,8 @@
         public Project() { }
         public CopySource CopySource { get; set; } = new CopySource();
         public Changeset Changeset { get; set; } = new Changeset();
+
+        public static Project CreateDefault() => new();
     }
 
     public class CopySource
