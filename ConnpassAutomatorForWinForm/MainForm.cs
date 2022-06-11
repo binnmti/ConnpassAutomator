@@ -8,14 +8,14 @@ using System.Text.RegularExpressions;
 
 namespace ConnpassAutomatorForWinForm
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
         private Setting Setting { get; init; }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             Setting = LoadSetting();
