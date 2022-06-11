@@ -8,14 +8,14 @@ using System.Text.RegularExpressions;
 
 namespace ConnpassAutomatorForWinForm
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private ChromeDriver Driver { get; set; }
         private WebDriverWait DriverWait { get; set; }
 
         private Setting Setting { get; init; }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             Setting = LoadSetting();
@@ -179,7 +179,7 @@ namespace ConnpassAutomatorForWinForm
                 //É^ÉCÉgÉãÇèëÇ´ä∑Ç¶ÇÈ
                 var titleValue = title.GetAttribute("value");
                 title.Clear();
-                title.SendKeys(descTextBox.Text);
+                title.SendKeys(explanationTextBox.Text);
                 var submit = fieldTitle.FindElement(By.CssSelector("button[type=submit]"));
                 submit.Click();
             }
@@ -218,7 +218,7 @@ namespace ConnpassAutomatorForWinForm
             startTimeMaskedTextBox.Text = project.Changeset.StartTime;
             endDateMaskedTextBox.Text = project.Changeset.EndDate;
             endTimeMaskedTextBox.Text = project.Changeset.EndTime;
-            descTextBox.Text = project.Changeset.Explanation;
+            explanationTextBox.Text = project.Changeset.Explanation;
         }
 
         private void plus7Button_Click(object sender, EventArgs e)
@@ -343,17 +343,17 @@ namespace ConnpassAutomatorForWinForm
             project.Changeset.EndTime = changedText;
         }
 
-        private void descTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string changedText = descTextBox.Text;
-            Project project = GetCurrentProject();
-            project.Changeset.Explanation = changedText;
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int changedIndex = comboBox1.SelectedIndex;
             SetCurrentProject(changedIndex);
+        }
+
+        private void explanationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string changedText = explanationTextBox.Text;
+            Project project = GetCurrentProject();
+            project.Changeset.Explanation = changedText;
         }
     }
 }

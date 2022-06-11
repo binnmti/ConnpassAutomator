@@ -14,7 +14,7 @@ namespace ConnpassAutomatorForWinForm
             //“ú–{Œê‚µ‚©‹–‚³‚È‚¢
             CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("ja-JP");
             CultureInfo.CurrentUICulture = CultureInfo.CreateSpecificCulture("ja-JP");
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
