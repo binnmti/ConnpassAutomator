@@ -4,6 +4,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace ConnpassAutomator
 {
+    /// <summary>
+    /// chromeDriverを呼び出し元が用意する前提
+    /// </summary>
     public class EventPublisher
     {
         private readonly string chromeDriverDirectory;
