@@ -225,11 +225,16 @@ namespace ConnpassAutomatorForWinForm
 
         private void RemoveProjectButton_Click(object sender, EventArgs e)
         {
-            // TODO:削除確認
             var count = Setting.Projects.Count;
             if(count == 1)
             {
                 MessageBox.Show("少なくとも1つのプロジェクトが必要なため、削除できません");
+                return;
+            }
+            // 削除確認
+            var result = MessageBox.Show("削除しますか？", "削除", MessageBoxButtons.YesNo);
+            if (result != DialogResult.Yes)
+            {
                 return;
             }
             var index = comboBox1.SelectedIndex;
