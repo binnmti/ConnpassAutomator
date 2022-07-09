@@ -67,6 +67,7 @@ namespace ConnpassAutomatorForWinForm
             userNameTextBox.Text = Setting.Credential.UserName;
             passwordTextBox.Text = Setting.Credential.Password;
             comboBox1.Items.AddRange(Setting.Projects.ToArray());
+            comboBox1.DisplayMember = "DisplayName";
 
             //TODO:前回開いていたプロジェクトをひらいてくれるのが嬉しい。
             comboBox1.SelectedIndex = 0;

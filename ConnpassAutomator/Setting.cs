@@ -24,6 +24,8 @@
         public Changeset Changeset { get; init; } = new Changeset();
 
         public static Project CreateDefault() => new();
+
+        public string DisplayName { get { return CopySource.EventTitle; } }
     }
 
     public class CopySource
