@@ -217,7 +217,10 @@ namespace ConnpassAutomatorForWinForm
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            Setting.Projects.Add(Project.CreateDefault());
+            var newProject = Project.CreateDefault();
+            Setting.Projects.Add(newProject);
+            comboBox1.Items.Add(newProject); // コンボボックスに反映
+            // カレントの設定どうするか
         }
     }
 }
