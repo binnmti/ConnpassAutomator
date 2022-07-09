@@ -7,7 +7,7 @@
         public IList<Project> Projects { get; init; } = new List<Project>();
 
         //TODO:デフォルトのSettingをどうするか
-        static public Setting CreateDefault() => new();
+        public static Setting CreateDefault() => new();
     }
 
     public class Credential
