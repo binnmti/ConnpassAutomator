@@ -69,7 +69,6 @@ namespace ConnpassAutomatorForWinForm
             comboBox1.Items.AddRange(Setting.Projects.ToArray());
 
             //TODO:前回開いていたプロジェクトをひらいてくれるのが嬉しい。
-            var project = Setting.Projects.First();
             comboBox1.SelectedIndex = 0;
         }
 
