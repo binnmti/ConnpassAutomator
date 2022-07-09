@@ -66,15 +66,11 @@ namespace ConnpassAutomatorForWinForm
         {
             userNameTextBox.Text = Setting.Credential.UserName;
             passwordTextBox.Text = Setting.Credential.Password;
+            comboBox1.Items.AddRange(Setting.Projects.ToArray());
+
+            //TODO:前回開いていたプロジェクトをひらいてくれるのが嬉しい。
             var project = Setting.Projects.First();
-            copySourceEventTitleTextBox.Text = project.CopySource.EventTitle;
-            titleTextBox.Text = project.Changeset.EventTitle;
-            subTitleTextBox.Text = project.Changeset.SubEventTitle;
-            startDateMaskedTextBox.Text = project.Changeset.StartDate;
-            startTimeMaskedTextBox.Text = project.Changeset.StartTime;
-            endDateMaskedTextBox.Text = project.Changeset.EndDate;
-            endTimeMaskedTextBox.Text = project.Changeset.EndTime;
-            explanationTextBox.Text = project.Changeset.Explanation;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void plus7Button_Click(object sender, EventArgs e)
@@ -131,11 +127,20 @@ namespace ConnpassAutomatorForWinForm
 
         private Project GetCurrentProject()
         {
-            return Setting.Projects[0];
+            return Setting.Projects[comboBox1.SelectedIndex];
         }
-        private void SetCurrentProject(int index)
+
+        private void SetCurrentProject()
         {
-            // TODO:表示の切り替え
+            var project = GetCurrentProject();
+            copySourceEventTitleTextBox.Text = project.CopySource.EventTitle;
+            titleTextBox.Text = project.Changeset.EventTitle;
+            subTitleTextBox.Text = project.Changeset.SubEventTitle;
+            startDateMaskedTextBox.Text = project.Changeset.StartDate;
+            startTimeMaskedTextBox.Text = project.Changeset.StartTime;
+            endDateMaskedTextBox.Text = project.Changeset.EndDate;
+            endTimeMaskedTextBox.Text = project.Changeset.EndTime;
+            explanationTextBox.Text = project.Changeset.Explanation;
         }
 
         private void userNameTextBox_TextChanged(object sender, EventArgs e)
@@ -201,8 +206,7 @@ namespace ConnpassAutomatorForWinForm
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int changedIndex = comboBox1.SelectedIndex;
-            SetCurrentProject(changedIndex);
+            SetCurrentProject();
         }
 
         private void explanationTextBox_TextChanged(object sender, EventArgs e)
@@ -210,6 +214,11 @@ namespace ConnpassAutomatorForWinForm
             string changedText = explanationTextBox.Text;
             Project project = GetCurrentProject();
             project.Changeset.Explanation = changedText;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            Setting.Projects.Add(Project.CreateDefault());
         }
     }
 }
