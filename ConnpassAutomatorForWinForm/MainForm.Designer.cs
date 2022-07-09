@@ -39,13 +39,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddButton = new System.Windows.Forms.Button();
+            this.RemoveProjectButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(109, 95);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 20);
             this.button1.TabIndex = 0;
@@ -56,7 +57,7 @@
             // userNameTextBox
             // 
             this.userNameTextBox.Location = new System.Drawing.Point(82, 31);
-            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(106, 23);
             this.userNameTextBox.TabIndex = 1;
@@ -65,7 +66,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(82, 64);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(106, 23);
@@ -75,7 +76,7 @@
             // copySourceEventTitleTextBox
             // 
             this.copySourceEventTitleTextBox.Location = new System.Drawing.Point(64, 26);
-            this.copySourceEventTitleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.copySourceEventTitleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.copySourceEventTitleTextBox.Multiline = true;
             this.copySourceEventTitleTextBox.Name = "copySourceEventTitleTextBox";
             this.copySourceEventTitleTextBox.Size = new System.Drawing.Size(285, 41);
@@ -96,7 +97,7 @@
             // subTitleTextBox
             // 
             this.subTitleTextBox.Location = new System.Drawing.Point(53, 181);
-            this.subTitleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subTitleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.subTitleTextBox.Name = "subTitleTextBox";
             this.subTitleTextBox.Size = new System.Drawing.Size(200, 23);
             this.subTitleTextBox.TabIndex = 7;
@@ -125,7 +126,7 @@
             // explanationTextBox
             // 
             this.explanationTextBox.Location = new System.Drawing.Point(52, 367);
-            this.explanationTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.explanationTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.explanationTextBox.Multiline = true;
             this.explanationTextBox.Name = "explanationTextBox";
             this.explanationTextBox.Size = new System.Drawing.Size(285, 156);
@@ -155,7 +156,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Location = new System.Drawing.Point(64, 124);
-            this.titleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.titleTextBox.Multiline = true;
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(285, 39);
@@ -196,7 +197,7 @@
             // startDateMaskedTextBox
             // 
             this.startDateMaskedTextBox.Location = new System.Drawing.Point(55, 247);
-            this.startDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.startDateMaskedTextBox.Mask = "0000/00/00";
             this.startDateMaskedTextBox.Name = "startDateMaskedTextBox";
             this.startDateMaskedTextBox.Size = new System.Drawing.Size(106, 23);
@@ -207,7 +208,7 @@
             // startTimeMaskedTextBox
             // 
             this.startTimeMaskedTextBox.Location = new System.Drawing.Point(164, 247);
-            this.startTimeMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startTimeMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.startTimeMaskedTextBox.Mask = "00:00";
             this.startTimeMaskedTextBox.Name = "startTimeMaskedTextBox";
             this.startTimeMaskedTextBox.Size = new System.Drawing.Size(106, 23);
@@ -218,7 +219,7 @@
             // endTimeMaskedTextBox
             // 
             this.endTimeMaskedTextBox.Location = new System.Drawing.Point(164, 293);
-            this.endTimeMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.endTimeMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.endTimeMaskedTextBox.Mask = "00:00";
             this.endTimeMaskedTextBox.Name = "endTimeMaskedTextBox";
             this.endTimeMaskedTextBox.Size = new System.Drawing.Size(106, 23);
@@ -229,7 +230,7 @@
             // endDateMaskedTextBox
             // 
             this.endDateMaskedTextBox.Location = new System.Drawing.Point(55, 293);
-            this.endDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.endDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.endDateMaskedTextBox.Mask = "0000/00/00";
             this.endDateMaskedTextBox.Name = "endDateMaskedTextBox";
             this.endDateMaskedTextBox.Size = new System.Drawing.Size(106, 23);
@@ -240,7 +241,7 @@
             // plus7Button
             // 
             this.plus7Button.Location = new System.Drawing.Point(55, 208);
-            this.plus7Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plus7Button.Margin = new System.Windows.Forms.Padding(2);
             this.plus7Button.Name = "plus7Button";
             this.plus7Button.Size = new System.Drawing.Size(78, 20);
             this.plus7Button.TabIndex = 25;
@@ -251,7 +252,7 @@
             // titlePlusButton
             // 
             this.titlePlusButton.Location = new System.Drawing.Point(359, 130);
-            this.titlePlusButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titlePlusButton.Margin = new System.Windows.Forms.Padding(2);
             this.titlePlusButton.Name = "titlePlusButton";
             this.titlePlusButton.Size = new System.Drawing.Size(78, 20);
             this.titlePlusButton.TabIndex = 26;
@@ -263,9 +264,9 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(262, 7);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(437, 23);
+            this.comboBox1.Size = new System.Drawing.Size(382, 23);
             this.comboBox1.TabIndex = 27;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -288,9 +289,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.copySourceEventTitleTextBox);
             this.groupBox1.Location = new System.Drawing.Point(262, 35);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(502, 538);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
@@ -298,7 +299,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(704, 7);
+            this.AddButton.Location = new System.Drawing.Point(649, 7);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(60, 23);
             this.AddButton.TabIndex = 29;
@@ -306,11 +307,22 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // RemoveProjectButton
+            // 
+            this.RemoveProjectButton.Location = new System.Drawing.Point(715, 7);
+            this.RemoveProjectButton.Name = "RemoveProjectButton";
+            this.RemoveProjectButton.Size = new System.Drawing.Size(60, 23);
+            this.RemoveProjectButton.TabIndex = 30;
+            this.RemoveProjectButton.Text = "削除";
+            this.RemoveProjectButton.UseVisualStyleBackColor = true;
+            this.RemoveProjectButton.Click += new System.EventHandler(this.RemoveProjectButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 604);
+            this.Controls.Add(this.RemoveProjectButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBox1);
@@ -319,7 +331,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -356,5 +368,6 @@
         private ComboBox comboBox1;
         private GroupBox groupBox1;
         private Button AddButton;
+        private Button RemoveProjectButton;
     }
 }
