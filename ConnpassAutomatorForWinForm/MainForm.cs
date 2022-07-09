@@ -160,6 +160,9 @@ namespace ConnpassAutomatorForWinForm
             string changedText = copySourceEventTitleTextBox.Text;
             Project project = GetCurrentProject();
             project.CopySource.EventTitle = changedText;
+
+            // コンボボックスも更新する
+            comboBox1.Items[comboBox1.SelectedIndex] = project;
         }
 
         private void titleTextBox_TextChanged(object sender, EventArgs e)
